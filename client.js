@@ -8,11 +8,35 @@ function onReady() {
   $('.submitBtn').on('click', employeeInfo);
 }
 
-function employeeInfo(){
+function employeeInfo() {
   console.log('in employeeInfo');
-  let firstName = $('.firstNameIn').val();
-  let lastName = $('.lastNameIn').val();
-  let employeeId= Number($('.employeeIdIn').val());
-  let jobTitle = $('.jobTitleIn').val();
-  let annualSalary = Number($('.annualSalaryIn').val());
+  const firstName = $('.firstNameIn').val();
+  const lastName = $('.lastNameIn').val();
+  const employeeId = Number($('.employeeIdIn').val());
+  const jobTitle = $('.jobTitleIn').val();
+  const annualSalary = Number($('.annualSalaryIn').val());
+  console.log(firstName, lastName, employeeId, jobTitle, annualSalary);
+  $('#employeeTable').append(
+    `
+      <tr>
+        <td>${firstName}</td>
+        <td>${lastName}</td>
+        <td>${employeeId}</td>
+        <td>${jobTitle}</td>
+        <td>${annualSalary}</td>
+      </tr>
+      `
+  );
+  // some more things go above this
+  // empty input fields
+  $('.firstNameIn').val('');
+  $('.lastNameIn').val('');
+  $('.employeeIdIn').val('');
+  $('.jobTitleIn').val('');
+  $('.annualSalaryIn').val('');
 } // end employeeInfo function
+
+function dataValidation(){
+    employeeInfo();
+    if()
+}
