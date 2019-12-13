@@ -1,4 +1,6 @@
 /* eslint-disable no-use-before-define */
+const sumTotalMonthly = [];
+
 console.log('client loaded');
 
 $(document).ready(onReady);
@@ -6,9 +8,11 @@ $(document).ready(onReady);
 function onReady() {
   console.log('in onReady');
   $('.submitBtn').on('click', employeeInfo);
+  $('#employeeTable').on('click', '.deleteEmployeeBtn', fireEmployee)
 }
 
 function employeeInfo() {
+  // gather inputs from user
   console.log('in employeeInfo');
   const firstName = $('.firstNameIn').val();
   const lastName = $('.lastNameIn').val();
@@ -16,6 +20,7 @@ function employeeInfo() {
   const jobTitle = $('.jobTitleIn').val();
   const annualSalary = Number($('.annualSalaryIn').val());
   console.log(firstName, lastName, employeeId, jobTitle, annualSalary);
+  // data validation to avoid empty or false sumbissions
   if (
     firstName === 0 ||
     lastName === 0 ||
@@ -25,6 +30,7 @@ function employeeInfo() {
   ) {
     return false, alert('please enter valid employee info');
   }
+  // append inputs to the DOM
   $('#employeeTable').append(
     `
       <tr>
@@ -32,11 +38,11 @@ function employeeInfo() {
         <td>${lastName}</td>
         <td>${employeeId}</td>
         <td>${jobTitle}</td>
-        <td>${annualSalary}</td>
+        <td>$${annualSalary}</td>
+        <td><button class="deleteEmployeeBtn">Remove</button></td>
       </tr>
       `
   );
-  // some more things go above this
   // empty input fields
   $('.firstNameIn').val('');
   $('.lastNameIn').val('');
@@ -45,6 +51,12 @@ function employeeInfo() {
   $('.annualSalaryIn').val('');
 } // end employeeInfo function
 
+function fireEmployee() {
+  console.log('in fireEmployee function');
+  $(this)
+    .closest(`tr`)
+    .remove();
+}
 // function dataValidation(){
 //     employeeInfo();
 //     if()
