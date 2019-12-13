@@ -16,6 +16,15 @@ function employeeInfo() {
   const jobTitle = $('.jobTitleIn').val();
   const annualSalary = Number($('.annualSalaryIn').val());
   console.log(firstName, lastName, employeeId, jobTitle, annualSalary);
+  if (
+    firstName === 0 ||
+    lastName === 0 ||
+    employeeId <= 3 ||
+    jobTitle === 0 ||
+    annualSalary < 25000
+  ) {
+    return false, alert('please enter valid employee info');
+  }
   $('#employeeTable').append(
     `
       <tr>
@@ -36,7 +45,7 @@ function employeeInfo() {
   $('.annualSalaryIn').val('');
 } // end employeeInfo function
 
-function dataValidation(){
-    employeeInfo();
-    if()
-}
+// function dataValidation(){
+//     employeeInfo();
+//     if()
+// }
