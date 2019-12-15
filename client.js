@@ -1,5 +1,5 @@
 /* eslint-disable no-use-before-define */
-const sumTotalMonthly = [];
+// const sumTotalMonthly = Number[];
 
 console.log('client loaded');
 
@@ -8,7 +8,7 @@ $(document).ready(onReady);
 function onReady() {
   console.log('in onReady');
   $('.submitBtn').on('click', employeeInfo);
-  $('#employeeTable').on('click', '.deleteEmployeeBtn', fireEmployee)
+  $('#employeeTable').on('click', '.deleteEmployeeBtn', fireEmployee);
 }
 
 function employeeInfo() {
@@ -28,6 +28,7 @@ function employeeInfo() {
     jobTitle === 0 ||
     annualSalary < 25000
   ) {
+    // eslint-disable-next-line no-sequences
     return false, alert('please enter valid employee info');
   }
   // append inputs to the DOM
@@ -51,13 +52,11 @@ function employeeInfo() {
   $('.annualSalaryIn').val('');
 } // end employeeInfo function
 
+// remove employee from DOM on remove button click
 function fireEmployee() {
   console.log('in fireEmployee function');
   $(this)
     .closest(`tr`)
     .remove();
-}
-// function dataValidation(){
-//     employeeInfo();
-//     if()
-// }
+} // end fireEmployee
+
