@@ -3,11 +3,12 @@ console.log('client loaded');
 
 $(document).ready(onReady);
 
-const sumSalary = [];
+let sumSalary = [];
 
 function onReady() {
   console.log('in onReady');
   $('.submitBtn').on('click', employeeInfo);
+  // $('.submitBtn').on('click', totalMonthSalary);
   $('#employeeTable').on('click', '.deleteEmployeeBtn', fireEmployee);
 }
 
@@ -47,15 +48,16 @@ function employeeInfo() {
       </tr>
       `
   );
-  //   if (sumSalary > 240000) {
-  //     sumSalary = Math(sumSalary / 12);
-  //     $('.spotForTotal').append(
-  //       `
-  //   <h3 class="bg-danger">Total Monthly: ${sumSalary}</h3>
-  // `
-  //     );
-  //   }
-  totalMonthSalary();
+  if (sumSalary > 240000) {
+    console.log('trying to do math');
+    sumSalary /= 12;
+    $('.spotForTotal').append(
+      `
+    <h3 class="bg-danger">Total Monthly: ${sumSalary}</h3>
+    `
+    );
+  }
+  // totalMonthSalary();
 
   // empty input fields
   $('.firstNameIn').val('');
@@ -73,34 +75,26 @@ function fireEmployee() {
     .remove();
 } // end fireEmployee
 
-function totalMonthSalary() {
-  console.log('in totalMonthSalary');
-  let total = 0;
-  for (let i = 0; i < sumSalary.length; i++) {
-    total += sumSalary[i].annualSalary;
-  }
-  const thing = $('#spotForTotal');
-  thing.empty();
-  // const finalTotal = Math.round(total );
-  if (finalTotal <= 240000) {
-    $$('.spotForTotal').append(
-      `
-  <h3 class="bg-danger">Total Monthly: ${total}</h3>
-  `
-    );
-  }
-  // total.append(<div class = finallyTotalDiv);
-}
+// Below is useless code that did NOT work:
+// function totalMonthSalary() {
+//   console.log('in totalMonthSalary');
+//   let total = 0;
+//   for (let i = 0; i < sumSalary.length; i++) {
+//     total += sumSalary[i].annualSalary;
+//   }
+//   const thing = $('#spotForTotal');
+//   thing.empty();
+//   // const finalTotal = Math.round(total );
+//   if (finalTotal <= 240000) {
+//     $$('.spotForTotal').append(
+//       `
+//   <h3 class="bg-danger">Total Monthly: ${total}</h3>
+//   `
+//     );
+//   }
+//   // total.append(<div class = finallyTotalDiv);
+// }
 // if (finalTotal >= 2000) {
 //   total.append(<div class = finallyTotalDiv);
 //   return false, alert('You are over budget!');
-// }
-
-// if (sumSalary > 240000) {
-//   sumSalary = Math(sumSalary / 12);
-//   $('.spotForTotal').append(
-//     `
-// <h3 class="bg-danger">Total Monthly: ${sumSalary}</h3>
-// `
-//   );
 // }
