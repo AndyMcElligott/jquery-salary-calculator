@@ -28,4 +28,4 @@ Dane Smith and Gabe contributed to the creation of this application
 This is an open source application
 
 # Project Status
-The monthly calculation needs some tweeks in order to get it to populate on the DOM correctly.
+The monthly calculation needs some tweeks in order to get it to populate on the DOM correctly. Also had trouble getting the information to calculate on the monthly total.
