@@ -56,6 +56,14 @@ function employeeInfo() {
     <h3 class="bg-danger">Total Monthly: ${sumSalary}</h3>
     `
     );
+  } else if (sumSalary <= 240000) {
+    console.log('trying to do math');
+    sumSalary /= 12;
+    $('.spotForTotal').append(
+      `
+    <h3>Total Monthly: ${sumSalary}</h3>
+    `
+    );
   }
   // totalMonthSalary();
 
