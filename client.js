@@ -47,8 +47,15 @@ function employeeInfo() {
       </tr>
       `
   );
-  $('.spotForTotal').append((sumSalary)/12);
-  // totalMonthSalary();
+  //   if (sumSalary > 240000) {
+  //     sumSalary = Math(sumSalary / 12);
+  //     $('.spotForTotal').append(
+  //       `
+  //   <h3 class="bg-danger">Total Monthly: ${sumSalary}</h3>
+  // `
+  //     );
+  //   }
+  totalMonthSalary();
 
   // empty input fields
   $('.firstNameIn').val('');
@@ -66,25 +73,34 @@ function fireEmployee() {
     .remove();
 } // end fireEmployee
 
-// function totalMonthSalary() {
-// console.log('in totalMonthSalary')
-//   let total = 0;
-//   for (let i = 0; i < sumSalary.length; i++) {
-//     total += sumSalary[i].annualSalary;
-//   }
-//   const thing = $('#spotForTotal');
-//   thing.empty();
-//   const finalTotal = Math.round(total / 12);
-//   if (finalTotal <= 20000) {
-//     $('#spotForTotal').append(
-//       `
-//       <h3> Monthly Total: $${total} </h3>
-//       `
-//     );
-//     // total.append(<div class = finallyTotalDiv);
-//   }
-//   // if (finalTotal >= 2000) {
-//   //   total.append(<div class = finallyTotalDiv);
-//   //   return false, alert('You are over budget!');
-//   // }
+function totalMonthSalary() {
+  console.log('in totalMonthSalary');
+  let total = 0;
+  for (let i = 0; i < sumSalary.length; i++) {
+    total += sumSalary[i].annualSalary;
+  }
+  const thing = $('#spotForTotal');
+  thing.empty();
+  // const finalTotal = Math.round(total );
+  if (finalTotal <= 240000) {
+    $$('.spotForTotal').append(
+      `
+  <h3 class="bg-danger">Total Monthly: ${total}</h3>
+  `
+    );
+  }
+  // total.append(<div class = finallyTotalDiv);
+}
+// if (finalTotal >= 2000) {
+//   total.append(<div class = finallyTotalDiv);
+//   return false, alert('You are over budget!');
+// }
+
+// if (sumSalary > 240000) {
+//   sumSalary = Math(sumSalary / 12);
+//   $('.spotForTotal').append(
+//     `
+// <h3 class="bg-danger">Total Monthly: ${sumSalary}</h3>
+// `
+//   );
 // }
