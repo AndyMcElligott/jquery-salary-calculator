@@ -47,8 +47,7 @@ function employeeInfo() {
       </tr>
       `
   );
-  // const employeeMonthlySalary = sumSalary.push(newEmployee.annualSalary);
-  // $('.spotForTotal').append(employeeMonthlySalary);
+  $('.spotForTotal').append((sumSalary)/12);
   // totalMonthSalary();
 
   // empty input fields
@@ -68,7 +67,7 @@ function fireEmployee() {
 } // end fireEmployee
 
 // function totalMonthSalary() {
-  // console.log('in totalMonthSalary')
+// console.log('in totalMonthSalary')
 //   let total = 0;
 //   for (let i = 0; i < sumSalary.length; i++) {
 //     total += sumSalary[i].annualSalary;

@@ -1,9 +1,8 @@
 # Project Name
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+Salary Calculator
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+Allows users to input employee information to quickly determine whether they are on budget. This application will take inputs for employee's first and last names, job title, employee ID, as well as their annual salary. Once inputted, their information will be displayed on the table below. From there, a salary computation will take place to calculate the monthly salary, and if over $20k, the salary will turn red.
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/github-finalization-assignment).
