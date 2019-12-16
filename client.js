@@ -14,14 +14,15 @@ function onReady() {
 function employeeInfo() {
   // gather inputs from user
   console.log('in employeeInfo');
-  let newEmployee = {
+  const newEmployee = {
     firstName: $('.firstNameIn').val(),
     lastName: $('.lastNameIn').val(),
     employeeId: Number($('.employeeIdIn').val()),
     jobTitle: $('.jobTitleIn').val(),
-    annualSalary: Number($('.annualSalaryIn').val()),
+    annualSalary: $('.annualSalaryIn').val(),
   };
   console.log(newEmployee);
+  sumSalary.push(newEmployee.annualSalary);
   // data validation to avoid empty or false sumbissions
   if (
     newEmployee.firstName === 0 ||
@@ -42,12 +43,13 @@ function employeeInfo() {
         <td>${newEmployee.employeeId}</td>
         <td>${newEmployee.jobTitle}</td>
         <td>$${newEmployee.annualSalary}</td>
-        <td><button class="deleteEmployeeBtn">Remove</button></td>
+        <td><button class="deleteEmployeeBtn btn btn-danger">Remove</button></td>
       </tr>
       `
   );
-  let employeeMonthlySalary = sumSalary.push(newEmployee.annualSalary);
-  $('.spotForTotal').append((employeeMonthlySalary) / 12);
+  // const employeeMonthlySalary = sumSalary.push(newEmployee.annualSalary);
+  // $('.spotForTotal').append(employeeMonthlySalary);
+  // totalMonthSalary();
 
   // empty input fields
   $('.firstNameIn').val('');
@@ -64,3 +66,26 @@ function fireEmployee() {
     .closest(`tr`)
     .remove();
 } // end fireEmployee
+
+// function totalMonthSalary() {
+  // console.log('in totalMonthSalary')
+//   let total = 0;
+//   for (let i = 0; i < sumSalary.length; i++) {
+//     total += sumSalary[i].annualSalary;
+//   }
+//   const thing = $('#spotForTotal');
+//   thing.empty();
+//   const finalTotal = Math.round(total / 12);
+//   if (finalTotal <= 20000) {
+//     $('#spotForTotal').append(
+//       `
+//       <h3> Monthly Total: $${total} </h3>
+//       `
+//     );
+//     // total.append(<div class = finallyTotalDiv);
+//   }
+//   // if (finalTotal >= 2000) {
+//   //   total.append(<div class = finallyTotalDiv);
+//   //   return false, alert('You are over budget!');
+//   // }
+// }
